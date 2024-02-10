@@ -2,6 +2,8 @@ import 'package:ecommerce/presentation/ui/screens/home_screen.dart';
 import 'package:ecommerce/presentation/ui/utility/image_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -19,8 +21,9 @@ class _SplashScreenState extends State<SplashScreen> {
   }
   
   void goToNextScreen(){
-    Future.delayed(Duration(seconds: 2)).then((value) => Navigator.pushAndRemoveUntil(context,
-        MaterialPageRoute(builder: (context) => HomeScreen()), (route) => false));
+    Future.delayed(const Duration(seconds: 2)).then((value) {
+      Get.offAll(const HomeScreen());
+    });
   }
 
   @override
