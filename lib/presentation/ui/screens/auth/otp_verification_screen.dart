@@ -1,3 +1,4 @@
+import 'package:ecommerce/presentation/ui/screens/auth/complete_profile_screen.dart';
 import 'package:ecommerce/presentation/ui/utility/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -90,7 +91,7 @@ class _EmailVerificationScreenState extends State<OTPVerificationScreen> {
                     width: double.infinity,
                     child: ElevatedButton(
                         onPressed: () {
-                          Get.to(OTPVerificationScreen());
+                          Get.offAll(const CompleteProfileScreen());
                         },
                         child: const Text('Next'))),
                 const SizedBox(
@@ -111,7 +112,7 @@ class _EmailVerificationScreenState extends State<OTPVerificationScreen> {
                 TextButton(
                   onPressed: () {},
                   style: TextButton.styleFrom(foregroundColor: Colors.grey),
-                  child: const Text('Resend code'),
+                  child: const Text('Resend code', style: TextStyle(color: AppColors.primaryColor),),
                 )
               ],
             ),
