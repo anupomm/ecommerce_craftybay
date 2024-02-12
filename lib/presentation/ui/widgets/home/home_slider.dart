@@ -1,7 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-
 import '../../utility/app_colors.dart';
+
 class HomeSlider extends StatefulWidget {
   const HomeSlider({super.key});
 
@@ -10,7 +10,7 @@ class HomeSlider extends StatefulWidget {
 }
 
 class _HomeSliderState extends State<HomeSlider> {
-  ValueNotifier<int> _selectedSlider = ValueNotifier(0);
+  final ValueNotifier<int> _selectedSlider = ValueNotifier(0);
 
   @override
   Widget build(BuildContext context) {
