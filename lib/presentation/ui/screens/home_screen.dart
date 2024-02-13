@@ -1,3 +1,5 @@
+import 'package:ecommerce/presentation/ui/screens/category_list_screen.dart';
+import 'package:ecommerce/presentation/ui/screens/product_list_screen.dart';
 import 'package:ecommerce/presentation/ui/utility/image_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -6,6 +8,7 @@ import '../widgets/circular_icon_button.dart';
 import '../widgets/home/home_slider.dart';
 import '../widgets/home/section_header.dart';
 import '../widgets/product_card.dart';
+import 'package:get/get.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -75,7 +78,9 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 16,
               ),
-              SectionHeader(title: 'All Categories', onTap: () {}),
+              SectionHeader(title: 'All Categories', onTap: () {
+                Get.to(CategoryListScreen());
+              }),
               const SizedBox(
                 height: 16,
               ),
@@ -92,7 +97,9 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 16,
               ),
-              SectionHeader(title: 'Popular', onTap: () {}),
+              SectionHeader(title: 'Popular', onTap: () {
+                Get.to(const ProductListScreen());
+              }),
               SizedBox(
                 height: 170,
                 child: ListView.builder(
