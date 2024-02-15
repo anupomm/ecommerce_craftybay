@@ -3,6 +3,7 @@ import 'package:ecommerce/presentation/ui/screens/product_list_screen.dart';
 import 'package:ecommerce/presentation/ui/utility/image_assets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../../state_holders/main_bottom_nav_controller.dart';
 import '../widgets/category_card.dart';
 import '../widgets/circular_icon_button.dart';
 import '../widgets/home/home_slider.dart';
@@ -79,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 16,
               ),
               SectionHeader(title: 'All Categories', onTap: () {
-                Get.to(CategoryListScreen());
+                Get.find<MainBottomNavController>().changeScreen(1);
               }),
               const SizedBox(
                 height: 16,
