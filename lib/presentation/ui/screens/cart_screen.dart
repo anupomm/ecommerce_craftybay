@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../state_holders/main_bottom_nav_controller.dart';
 import '../utility/app_colors.dart';
+import '../widgets/cart_product_card.dart';
 
 class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
@@ -34,54 +34,14 @@ class _CartScreenState extends State<CartScreen> {
       ),
       body: Column(
         children: [
-          Expanded(child: Column(
-            children: [
-              Card(child: Row(
-                children: [
-                  Container(
-                    width: 100,
-                    height: 90,
-                    color: AppColors.primaryColor,
-
-                  ),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: [
-                        Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  const Text('Bata New Shoe'),
-                                  RichText(text: const TextSpan(
-                                    style: TextStyle(
-                                      color: Colors.black54,
-                                    ),
-                                    children: [
-                                      TextSpan(text: 'Color : Black'),
-                                      TextSpan(text: 'Size : XL'),
-                                    ]
-                                  ))
-
-                                ],
-                              ),
-                            ),
-                            IconButton(onPressed: (){}, icon: const Icon(Icons.delete_outline)),
-                          ],
-                        )
-                      ],
-                    ),
-                  )
-                ],
-              ),)
-            ],
-          ),),
+          Expanded(
+              child: ListView.builder(
+                  itemCount: 3,
+                  itemBuilder: (context, index) {
+                    return const CardProductCard();
+                  })),
           Container(
-            padding: const EdgeInsets.symmetric(
-                horizontal: 16, vertical: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
             decoration: BoxDecoration(
                 color: AppColors.primaryColor.withOpacity(0.1),
                 borderRadius: const BorderRadius.only(
@@ -118,8 +78,7 @@ class _CartScreenState extends State<CartScreen> {
                 SizedBox(
                     width: 120,
                     child: ElevatedButton(
-                        onPressed: () {},
-                        child: const Text('Checkout'))),
+                        onPressed: () {}, child: const Text('Checkout'))),
               ],
             ),
           )
