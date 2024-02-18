@@ -71,7 +71,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                   validator: (String? text) {
                     if (text!.isEmpty) {
                       return 'Enter Your email address';
-                    } else if (!text!.isEmail) {
+                    } else if (!text.isEmail) {
                       return 'Enter a valid email';
                     }
                     return null;
@@ -110,7 +110,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
     final response =
     await controller.verifyEmail(_emailTEController.text.trim());
     if (response) {
-      Get.to(() => const OTPVerificationScreen());
+      Get.to(() => OTPVerificationScreen(email: _emailTEController.text.trim()));
     } else {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
