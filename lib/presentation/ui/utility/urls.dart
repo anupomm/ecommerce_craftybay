@@ -1,10 +1,12 @@
 class Urls{
-  static const String baseUrl = 'https://craftybay.teamrabbil.com/api';
-  static String verifyEmail(String email) => '$baseUrl/UserLogin/$email';
+  static const String _baseUrl = 'https://craftybay.teamrabbil.com/api';
+  static String verifyEmail(String email) => '$_baseUrl/UserLogin/$email';
   static String verifyOtp(String email, String otp) =>
-      '$baseUrl/VerifyLogin/$email/$otp';
+      '$_baseUrl/VerifyLogin/$email/$otp';
 
   static String getHomeSliders =
-      '$baseUrl/ListProductSlider';
-  static String getCategories = '$baseUrl/CategoryList';
+      '$_baseUrl/ListProductSlider';
+  static String getCategories = '$_baseUrl/CategoryList';
+
+  static String getProductsByRemarks(String remarks) => '$_baseUrl/ListProductByRemark/$remarks';
 }

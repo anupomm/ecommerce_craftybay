@@ -1,18 +1,24 @@
 import 'package:ecommerce/presentation/ui/screens/product_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
+import '../../../data/models/product.dart';
 import '../utility/app_colors.dart';
+
 class ProductCard extends StatelessWidget {
   const ProductCard({
     super.key,
+    required this.product,
   });
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(8),
-      onTap: (){Get.to(const ProductDetailsScreen());},
+      onTap: () {
+        Get.to(const ProductDetailsScreen());
+      },
       child: Card(
         shadowColor: AppColors.primaryColor.withOpacity(0.1),
         shape: RoundedRectangleBorder(
@@ -24,39 +30,39 @@ class ProductCard extends StatelessWidget {
             children: [
               Container(
                 height: 100,
+                // padding: EdgeInsets.all(value),
                 decoration: BoxDecoration(
                     color: AppColors.primaryColor.withOpacity(0.1),
                     borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(8),
                       topRight: Radius.circular(8),
                     ),
-                    image: const DecorationImage(
+                    image: DecorationImage(
                         fit: BoxFit.cover,
-                        image: NetworkImage(
-                            'https://img.freepik.com/premium-vector/illustration-blue-sneaker_9620-300.jpg?w=740'))),
+                        image: NetworkImage(product.image ?? ''))),
               ),
-              const Padding(
-                padding: EdgeInsets.all(8.0),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
                 child: Column(
                   children: [
                     Text(
-                      'Nike Shoe 123',
+                      product.title ?? '',
                       maxLines: 1,
-                      style: TextStyle(
+                      style: const TextStyle(
                         overflow: TextOverflow.ellipsis,
                         fontWeight: FontWeight.w600,
                         color: Colors.blueGrey,
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 2,
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          '\$90',
-                          style: TextStyle(
+                          '\$${product.price ?? 0}',
+                          style: const TextStyle(
                             fontSize: 13,
                             color: AppColors.primaryColor,
                             fontWeight: FontWeight.w500,
@@ -65,21 +71,21 @@ class ProductCard extends StatelessWidget {
                         Wrap(
                             crossAxisAlignment: WrapCrossAlignment.center,
                             children: [
-                              Icon(
+                              const Icon(
                                 Icons.star_border,
                                 size: 15,
                                 color: Colors.amber,
                               ),
                               Text(
-                                '4.5',
-                                style: TextStyle(
+                                '${product.star ?? 0}',
+                                style: const TextStyle(
                                   overflow: TextOverflow.ellipsis,
                                   fontWeight: FontWeight.w600,
                                   color: Colors.blueGrey,
                                 ),
                               ),
                             ]),
-                        Card(
+                        const Card(
                           color: AppColors.primaryColor,
                           child: Padding(
                             padding: EdgeInsets.all(2.0),

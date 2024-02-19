@@ -2,7 +2,6 @@ import 'package:ecommerce/data/models/network_response.dart';
 import 'package:ecommerce/data/services/network_caller.dart';
 import 'package:ecommerce/presentation/state_holders/auth_controller.dart';
 import 'package:get/get.dart';
-
 import '../ui/utility/urls.dart';
 
 class OtpVerificationController extends GetxController {

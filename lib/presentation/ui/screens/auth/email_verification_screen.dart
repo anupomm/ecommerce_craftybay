@@ -1,10 +1,8 @@
 import 'package:ecommerce/presentation/state_holders/email_verification_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-
 import '../../utility/image_assets.dart';
 import 'package:get/get.dart';
-
 import 'otp_verification_screen.dart';
 
 class EmailVerificationScreen extends StatefulWidget {
@@ -34,34 +32,26 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                 ),
                 Center(
                     child: SvgPicture.asset(
-                      ImageAssets.craftyBayLogoSVG,
-                      width: 100,
-                    )),
+                  ImageAssets.craftyBayLogoSVG,
+                  width: 100,
+                )),
                 const SizedBox(
                   height: 16,
                 ),
                 Text(
                   'Welcome Back!',
-                  style: Theme
-                      .of(context)
-                      .textTheme
-                      .titleLarge
-                      ?.copyWith(
-                    fontSize: 24,
-                  ),
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                        fontSize: 24,
+                      ),
                 ),
                 const SizedBox(
                   height: 4,
                 ),
                 Text(
                   'Please enter your email address',
-                  style: Theme
-                      .of(context)
-                      .textTheme
-                      .titleMedium
-                      ?.copyWith(
-                    color: Colors.grey,
-                  ),
+                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                        color: Colors.grey,
+                      ),
                 ),
                 const SizedBox(
                   height: 24,
@@ -85,19 +75,19 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                     width: double.infinity,
                     child: GetBuilder<EmailVerificationController>(
                         builder: (controller) {
-                          if (controller.emailVerificationInProgress) {
-                            return const Center(
-                              child: CircularProgressIndicator(),
-                            );
-                          }
-                          return ElevatedButton(
-                              onPressed: () async {
-                                if (_formKey.currentState!.validate()) {
-                                  verifyEmail(controller);
-                                }
-                              },
-                              child: const Text('Next'));
-                        })),
+                      if (controller.emailVerificationInProgress) {
+                        return const Center(
+                          child: CircularProgressIndicator(),
+                        );
+                      }
+                      return ElevatedButton(
+                          onPressed: () async {
+                            if (_formKey.currentState!.validate()) {
+                              verifyEmail(controller);
+                            }
+                          },
+                          child: const Text('Next'));
+                    })),
               ],
             ),
           ),
@@ -108,9 +98,10 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
 
   Future<void> verifyEmail(EmailVerificationController controller) async {
     final response =
-    await controller.verifyEmail(_emailTEController.text.trim());
+        await controller.verifyEmail(_emailTEController.text.trim());
     if (response) {
-      Get.to(() => OTPVerificationScreen(email: _emailTEController.text.trim()));
+      Get.to(
+          () => OTPVerificationScreen(email: _emailTEController.text.trim()));
     } else {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
