@@ -1,4 +1,5 @@
-import 'package:ecommerce/presentation/ui/screens/category_list_screen.dart';
+import 'package:ecommerce/presentation/state_holders/category_controller.dart';
+import 'package:ecommerce/presentation/state_holders/home_slider_controller.dart';
 import 'package:ecommerce/presentation/ui/screens/product_list_screen.dart';
 import 'package:ecommerce/presentation/ui/utility/image_assets.dart';
 import 'package:flutter/material.dart';
@@ -75,7 +76,21 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 16,
               ),
-              const HomeSlider(),
+              GetBuilder<HomeSlidersController>(
+                builder: (homeSliderController) {
+                  if(homeSliderController.getHomeSlidersInProgress){
+                    return const SizedBox(
+                      height: 180,
+                      child: Center(
+                        child: CircularProgressIndicator(),
+                      ),
+                    );
+                  }
+                  return  HomeSlider(
+                    sliders: homeSliderController.sliderModel.data?? [],
+                  );
+                }
+              ),
               const SizedBox(
                 height: 16,
               ),
@@ -87,12 +102,21 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               SizedBox(
                 height: 100,
-                child: ListView.builder(
-                  itemCount: 10,
-                  scrollDirection: Axis.horizontal,
-                  itemBuilder: (context, index) {
-                    return const CategoryCard();
-                  },
+                child: GetBuilder<CategoryController>(
+                  builder: (categoryController) {
+                    if(categoryController.getCategoriesInProgress){
+                      return const Center(
+                        child: CircularProgressIndicator(),
+                      );
+                    }
+                    return ListView.builder(
+                    itemCount: categoryController.categoryModel.data?.length?? 0,
+                    scrollDirection: Axis.horizontal,
+                    itemBuilder: (context,index){
+                      return const CategoryCard();
+                    });
+
+                  }
                 ),
               ),
               const SizedBox(
