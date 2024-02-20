@@ -2,18 +2,18 @@ import 'package:ecommerce/data/models/network_response.dart';
 import 'package:ecommerce/data/models/product_model.dart';
 import 'package:ecommerce/data/services/network_caller.dart';
 import 'package:get/get.dart';
-
 import '../ui/utility/urls.dart';
 
-class ProductController extends GetxController {
+// SRP - Single Responsibility Principle
+class PopularProductController extends GetxController {
   bool _getPopularProductsInProgress = false;
   ProductModel _popularProductModel = ProductModel();
   String _errorMessage = '';
-  
+
   bool get getPopularProductsInProgress => _getPopularProductsInProgress;
-  
+
   ProductModel get popularProductModel => _popularProductModel;
-  
+
   Future<bool> getPopularProducts() async {
     _getPopularProductsInProgress = true;
     update();
@@ -21,15 +21,15 @@ class ProductController extends GetxController {
       Urls.getProductsByRemarks('popular'),
     );
     _getPopularProductsInProgress = false;
-    if(response.isSuccess){
+    if (response.isSuccess) {
       _popularProductModel = ProductModel.fromJson(response.responseJson ?? {});
       update();
       return true;
-    }
-    else{
+    } else {
       _errorMessage = 'Popular product fetch failed! Try again.';
       update();
       return true;
     }
   }
+
 }
