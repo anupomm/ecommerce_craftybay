@@ -40,7 +40,7 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
                     height: 16,
                   ),
                   Text(
-                    'Welcome Back!',
+                    'Welcome Back',
                     style: Theme.of(context).textTheme.titleLarge?.copyWith(
                           fontSize: 24,
                         ),
