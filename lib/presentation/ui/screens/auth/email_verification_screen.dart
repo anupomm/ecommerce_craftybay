@@ -20,75 +20,77 @@ class _EmailVerificationScreenState extends State<EmailVerificationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              children: [
-                const SizedBox(
-                  height: 100,
-                ),
-                Center(
-                    child: SvgPicture.asset(
-                  ImageAssets.craftyBayLogoSVG,
-                  width: 100,
-                )),
-                const SizedBox(
-                  height: 16,
-                ),
-                Text(
-                  'Welcome Back!',
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontSize: 24,
-                      ),
-                ),
-                const SizedBox(
-                  height: 4,
-                ),
-                Text(
-                  'Please enter your email address',
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: Colors.grey,
-                      ),
-                ),
-                const SizedBox(
-                  height: 24,
-                ),
-                TextFormField(
-                  controller: _emailTEController,
-                  validator: (String? text) {
-                    if (text!.isEmpty) {
-                      return 'Enter Your email address';
-                    } else if (!text.isEmail) {
-                      return 'Enter a valid email';
-                    }
-                    return null;
-                  },
-                  decoration: const InputDecoration(hintText: 'Email'),
-                ),
-                const SizedBox(
-                  height: 16,
-                ),
-                SizedBox(
-                    width: double.infinity,
-                    child: GetBuilder<EmailVerificationController>(
-                        builder: (controller) {
-                      if (controller.emailVerificationInProgress) {
-                        return const Center(
-                          child: CircularProgressIndicator(),
-                        );
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 100,
+                  ),
+                  Center(
+                      child: SvgPicture.asset(
+                    ImageAssets.craftyBayLogoSVG,
+                    width: 100,
+                  )),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  Text(
+                    'Welcome Back!',
+                    style: Theme.of(context).textTheme.titleLarge?.copyWith(
+                          fontSize: 24,
+                        ),
+                  ),
+                  const SizedBox(
+                    height: 4,
+                  ),
+                  Text(
+                    'Please enter your email address',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          color: Colors.grey,
+                        ),
+                  ),
+                  const SizedBox(
+                    height: 24,
+                  ),
+                  TextFormField(
+                    controller: _emailTEController,
+                    validator: (String? text) {
+                      if (text!.isEmpty) {
+                        return 'Enter Your email address';
+                      } else if (!text.isEmail) {
+                        return 'Enter a valid email';
                       }
-                      return ElevatedButton(
-                          onPressed: () async {
-                            if (_formKey.currentState!.validate()) {
-                              verifyEmail(controller);
-                            }
-                          },
-                          child: const Text('Next'));
-                    })),
-              ],
+                      return null;
+                    },
+                    decoration: const InputDecoration(hintText: 'Email'),
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  SizedBox(
+                      width: double.infinity,
+                      child: GetBuilder<EmailVerificationController>(
+                          builder: (controller) {
+                        if (controller.emailVerificationInProgress) {
+                          return const Center(
+                            child: CircularProgressIndicator(),
+                          );
+                        }
+                        return ElevatedButton(
+                            onPressed: () async {
+                              if (_formKey.currentState!.validate()) {
+                                verifyEmail(controller);
+                              }
+                            },
+                            child: const Text('Next'));
+                      })),
+                ],
+              ),
             ),
           ),
         ),

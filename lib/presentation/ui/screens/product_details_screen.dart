@@ -2,10 +2,13 @@ import 'package:ecommerce/presentation/ui/utility/app_colors.dart';
 import 'package:ecommerce/presentation/ui/widgets/home/product_image_slider.dart';
 import 'package:flutter/material.dart';
 
+import '../../../data/models/product.dart';
 import '../widgets/custom_stepper.dart';
 
 class ProductDetailsScreen extends StatefulWidget {
-  const ProductDetailsScreen({super.key});
+
+  final Product product;
+  const ProductDetailsScreen({super.key, required this.product});
 
   @override
   State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
@@ -33,7 +36,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
           children: [
             Stack(
               children: [
-                const ProductImageSlider(),
+                 ProductImageSlider(
+                   imageList: [widget.product.image?? ''],
+                 ),
                 AppBar(
                   leading: const BackButton(
                     color: Colors.grey,
@@ -56,9 +61,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                 children: [
                   Row(
                     children: [
-                      const Expanded(
-                        child: Text('Adidas Shoe Premium Edition',
-                            style: TextStyle(
+                       Expanded(
+                        child: Text(widget.product.title ?? '',
+                            style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                               letterSpacing: 0.5,
@@ -78,16 +83,16 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
-                      const Wrap(
+                       Wrap(
                         children: [
-                          Icon(
+                          const Icon(
                             Icons.star,
                             size: 18,
                             color: Colors.amber,
                           ),
                           Text(
-                            '4.5',
-                            style: TextStyle(
+                            '${widget.product.star ?? 0}',
+                            style: const TextStyle(
                               overflow: TextOverflow.ellipsis,
                               fontSize: 15,
                               fontWeight: FontWeight.w500,
@@ -227,8 +232,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
                   const SizedBox(
                     height: 16,
                   ),
-                  const Text(
-                      '''Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'''),
+                   Text(widget.product.shortDes ?? ' '),
                   const SizedBox(
                     height: 16,
                   ),
