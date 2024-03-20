@@ -1,4 +1,4 @@
-#Screenshots
+Screenshots
 
 <p float="left">
   <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/8160663d-779d-4485-b740-b017f449968a" width="300" />
@@ -11,6 +11,6 @@
 </p>
 
 <p float="left">
-  <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/ef21cb93-c2ac-4bf7-82b7-20b3c9bfacbf" width="300" />
-  <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/065e2e7c-b87a-47f6-9d96-b0314b10900f" width="300" /> 
+  <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/065e2e7c-b87a-47f6-9d96-b0314b10900f" width="300" />
+  <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/ef21cb93-c2ac-4bf7-82b7-20b3c9bfacbf" width="300" /> 
 </p>
