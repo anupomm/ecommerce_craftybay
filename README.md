@@ -1,4 +1,6 @@
-Screenshots
+# Ecommerce App
+
+# screenshots
 
 <p float="left">
   <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/8160663d-779d-4485-b740-b017f449968a" width="300" />
