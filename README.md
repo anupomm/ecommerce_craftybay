@@ -3,9 +3,9 @@
 # Screenshots
 
 <p float="left">
-  <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/8160663d-779d-4485-b740-b017f449968a" width="280" />
-  <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/e0a3c1e3-67d5-4d78-82c4-71593517cb91" width="280" /> 
-   <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/39431ca2-14d5-403d-9122-b2fffa202b3b" width="280" />
+  <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/8160663d-779d-4485-b740-b017f449968a" width="250" />
+  <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/e0a3c1e3-67d5-4d78-82c4-71593517cb91" width="250" /> 
+   <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/39431ca2-14d5-403d-9122-b2fffa202b3b" width="250" />
 </p>
 
 <p float="left">
