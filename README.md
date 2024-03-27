@@ -9,7 +9,7 @@
 </p>
 
 <p float="left">
-   <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/abf40eb9-c360-4032-84f7-41ac253aa9bb" width="280" /> 
-  <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/065e2e7c-b87a-47f6-9d96-b0314b10900f" width="280" />
-  <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/ef21cb93-c2ac-4bf7-82b7-20b3c9bfacbf" width="280" /> 
+   <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/abf40eb9-c360-4032-84f7-41ac253aa9bb" width="250" /> 
+  <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/065e2e7c-b87a-47f6-9d96-b0314b10900f" width="250" />
+  <img src="https://github.com/anupomm/ecommerce_craftybay/assets/95094496/ef21cb93-c2ac-4bf7-82b7-20b3c9bfacbf" width="250" /> 
 </p>
